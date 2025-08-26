@@ -1,0 +1,19 @@
+<h1>New Task</h1>
+
+<%= form_with modwel: @task do |f| %>
+
+<div>
+  <%= f.label :title, "Título" %><br>
+  <%= f.text_field :title, required: true %>
+</div>
+
+<div>
+  <%= f.label :details, "Detalhes" %><br>
+  <%= f.text_area :details, rows: 5 %>
+</div>
+
+<div>
+  <%= f.submit "Criar Tarefa" %>
+</div>
+<% end %>
+<p><%= link_to "Voltar para a lista", tasks_path %></p>

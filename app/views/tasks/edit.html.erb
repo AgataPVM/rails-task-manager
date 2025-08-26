@@ -1,0 +1,30 @@
+<h1>Editar Task</h1>
+
+<%# form_with model: @task detecta que é um registro existente (tem id)
+    e gera automaticamente PATCH /tasks/:id %>
+<%= form_with model: @task do |f| %>
+  <div>
+    <%= f.label :title, "Título" %><br>
+    <%= f.text_field :title, required: true %>
+  </div>
+
+  <div>
+    <%= f.label :details, "Detalhes" %><br>
+    <%= f.text_area :details, rows: 5 %>
+  </div>
+
+  <div>
+    <%= f.label :completed, "Concluída?" %>
+    <%# check_box já envia o hidden para o caso de desmarcar virar "0" %>
+    <%= f.check_box :completed %>
+  </div>
+
+  <div>
+    <%= f.submit "Salvar" %>
+  </div>
+<% end %>
+
+<p>
+  <%= link_to "Voltar", task_path(@task) %> |
+  <%= link_to "Lista", tasks_path %>
+</p>
